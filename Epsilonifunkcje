@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+double fun(double x, double a1, double a2, double a3, double a4)
+{
+	return (a1*(x*x*x) + a2*(x*x) + a3*x + a4);
+}
+main()
+{
+	double e = 0.001;
+	double p, k, a1, a2, a3, a4, s;
+	cin>>a1>>a2>>a3>>a4;
+	cout<<"\n";
+	cin>>p>>k;
+	while(true)
+	{
+		s = (p + k) / 2;
+		if(abs(fun(s, a1, a2, a3, a4)) < e)
+		{
+			cout<<s;
+			return 0;
+		}
+		else
+		{
+			if(fun(s, a1, a2, a3, a4) * fun(p, a1, a2, a3, a4) < 0)
+			{
+				k = s;
+								
+			}
+			else
+			{
+				p = s;
+							
+			}
+		}
+	}
+}
